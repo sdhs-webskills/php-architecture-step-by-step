@@ -16,11 +16,28 @@
       <button type="submit">전송</button>
     </fieldset>
   </form>
+  <form action="./update_ok.php" method="post">
+    <fieldset>
+      <legend>수정</legend>
+      <input type="text" name="key" placeholder="번호 입력" />
+      <input type="text" name="contents" placeholder="내용 입력" />
+      <button type="submit">전송</button>
+    </fieldset>
+  </form>
+  <form action="./delete_ok.php" method="post">
+    <fieldset>
+      <legend>삭제</legend>
+      <input type="text" name="key" placeholder="번호 입력" />
+      <button type="submit">전송</button>
+    </fieldset>
+  </form>
   <section>
     <h2>아이템 목록</h2>
     <ul>
-      <?php foreach ($data as $item) { ?>
-        <li><?php echo $item ?></li>
+      <?php foreach ($data as $key => $item) { ?>
+        <li>
+          <?php echo $key ?> / <?php echo $item ?>
+        </li>
       <?php } ?>
     </ul>
   </section>
