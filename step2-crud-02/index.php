@@ -32,14 +32,6 @@
 
     alert($msg);
     move('./');
-
-    echo "
-      <script>
-        alert('추가되었습니다.');
-        location.replace('./');
-      </script>
-    ";
-    exit;
   }
 ?>
 <!doctype html>
