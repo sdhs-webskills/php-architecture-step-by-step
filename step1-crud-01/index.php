@@ -3,7 +3,6 @@
    * 간단하게 메모리를 이용하여 데이터를 넣고 빼고 할 예정
    * @link {https://www.php.net/manual/en/book.shmop.php}
    */
-
 ?>
 <!doctype html>
 <html lang="ko">
