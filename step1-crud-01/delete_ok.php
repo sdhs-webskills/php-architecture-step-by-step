@@ -2,7 +2,7 @@
   $path = "./data.json";
   $data = file_exists($path) ? json_decode(file_get_contents($path)) : [];
 
-  unset($data[$_POST['key']]);
+  array_splice($data, $_POST['key'], 1);
 
   file_put_contents($path, json_encode($data));
 
