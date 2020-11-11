@@ -1,8 +1,6 @@
 <?php
-  /**
-   * 간단하게 메모리를 이용하여 데이터를 넣고 빼고 할 예정
-   * @link {https://www.php.net/manual/en/book.shmop.php}
-   */
+  $path = "./data.json";
+  $data = file_exists($path) ? json_decode(file_get_contents($path)) : [];
 ?>
 <!doctype html>
 <html lang="ko">
@@ -18,5 +16,13 @@
       <button type="submit">전송</button>
     </fieldset>
   </form>
+  <section>
+    <h2>아이템 목록</h2>
+    <ul>
+      <?php foreach ($data as $item) { ?>
+        <li><?php echo $item ?></li>
+      <?php } ?>
+    </ul>
+  </section>
 </body>
 </html>
