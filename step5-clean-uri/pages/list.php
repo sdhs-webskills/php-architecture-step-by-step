@@ -13,5 +13,5 @@
       </li>
     <?php } ?>
   </ul>
-  <a href="<?php echo BASE_URI?>/?page=add">아이템 추가</a>
+  <a href="<?php echo BASE_URI?>/add">아이템 추가</a>
 </section>
