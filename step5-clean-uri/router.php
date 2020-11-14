@@ -1,6 +1,8 @@
 <?php
-if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])) {
-  return false;    // serve the requested resource as-is.
+$uri = $_SERVER['REQUEST_URI'];
+
+if (!preg_match("/^[^.]+$/", $uri)) {
+  return false;
 }
 
-include_once(__dir__ . $_SERVER['REQUEST_URI'] . "/index.php");
+include_once("./index.php");
