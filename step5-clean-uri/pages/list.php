@@ -8,8 +8,8 @@
       <li>
         <?php echo $key ?> /
         <?php echo $item ?> /
-        <a href="<?php echo BASE_URI?>/?page=update&amp;key=<?php echo $key?>">수정</a> /
-        <a href="<?php echo BASE_URI?>/?page=delete&amp;key=<?php echo $key?>">삭제</a> /
+        <a href="<?php echo BASE_URI?>/update/<?php echo $key?>">수정</a> /
+        <a href="<?php echo BASE_URI?>/delete/<?php echo $key?>">삭제</a> /
       </li>
     <?php } ?>
   </ul>

@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URI', '/step4-crud-04');
+define('BASE_URI', '');
 
 define('ROOT', __dir__);
 define('CORE', ROOT . '/core');
