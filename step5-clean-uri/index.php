@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URI', '');
+define('BASE_URI', '/step5-clean-uri');
 
 define('ROOT', __dir__);
 define('CORE', ROOT . '/core');
