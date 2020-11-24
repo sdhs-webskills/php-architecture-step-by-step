@@ -28,18 +28,31 @@ class Router {
     }
 
     public function run() {
-        array_filter($this->routes);
+        [$callback, $params] = current(array_reduce($this->routes, function ($routes, $route) {
+            [$method, $uri, $callback] = $route;
+            $uri = '/^'. str_replace("/", "\/", $uri) .'$/';
+            if (!preg_match($uri, $this->requestUri)) return $routes;
+            preg_match_all($uri, $this->requestUri, $params, 2, 0);
+            $routes[] = [$callback, $params[0]];
+            return $routes;
+        }, []));
+
+        $callback($params);
     }
 }
 
 $router = new Router('/step6-router');
 
 $router->get('/', function ($param) {
-
+    echo "root";
 });
 
 $router->get('/test', function ($param) {
+    echo "test";
+});
 
+$router->get('/api/([0-9]+)', function ($param) {
+    print_pre($param);
 });
 
 $router->run();
