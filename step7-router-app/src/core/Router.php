@@ -7,7 +7,7 @@ class Router {
     private String $baseUri;
     private String $requestUri;
 
-    function Router($baseUri) {
+    function __construct($baseUri) {
         $this->baseUri = $baseUri;
         $this->requestUri = str_replace($baseUri, "", $_SERVER['REQUEST_URI']);
     }
@@ -25,7 +25,7 @@ class Router {
     }
 
     public function run() {
-        [$callback, $params] = current(array_reduce($this->routes, function ($routes, $route) {
+        $routes = array_reduce($this->routes, function ($routes, $route) {
             [$method, $uri, $callback] = $route;
             $uri = '/^'. str_replace("/", "\/", $uri) .'$/';
 
@@ -38,8 +38,13 @@ class Router {
             $routes[] = [$callback, $params[0]];
 
             return $routes;
-        }, []));
+        }, []);
 
+        if (count($routes) === 0) {
+            echo 'Not Found ' . $this->requestUri;
+            return;
+        }
+        [$callback, $params] = current($routes);
         $callback($params);
     }
 }

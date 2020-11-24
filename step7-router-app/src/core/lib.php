@@ -1,7 +1,5 @@
 <?php
 
-namespace src\core\lib;
-
 function print_pre ($el) {
     echo "<pre>";
     print_r($el);
