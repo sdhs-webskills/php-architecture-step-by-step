@@ -44,5 +44,19 @@
       <li>깔금한 주소체계 사용하기</li>
     </ul>
   </section>
+  <section>
+    <h2>Step6: Router</h2>
+    <ul>
+      <li><a href="./step6-router">step6-router</a></li>
+      <li>router를 이용하여 uri 파싱하기</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Step7: Clean URI</h2>
+    <ul>
+      <li><a href="./step7-router-app">step7-router-app</a></li>
+      <li>router로 controller 만들어보기</li>
+    </ul>
+  </section>
 </body>
 </html>
