@@ -13,9 +13,7 @@ class UserController {
 
     private function getUser($params) {
         header("Content-Type: application/json");
-        echo json_encode([
-            "id" => "junil",
-            "name" => "황준일",
-        ]);
+        $user = fetchData("user");
+        echo json_encode($user);
     }
 }
