@@ -3,7 +3,6 @@ function print_pre ($obj) {
     echo "<pre>";
     print_r($obj);
     echo "</pre>";
-    exit;
 }
 class Router {
     private Array $routes = [];
@@ -28,12 +27,19 @@ class Router {
     }
 
     public function run() {
+        echo $_SERVER['REQUEST_METHOD'];
         [$callback, $params] = current(array_reduce($this->routes, function ($routes, $route) {
             [$method, $uri, $callback] = $route;
             $uri = '/^'. str_replace("/", "\/", $uri) .'$/';
-            if (!preg_match($uri, $this->requestUri)) return $routes;
+
+            if (
+                $method !== strtolower($_SERVER['REQUEST_METHOD']) ||
+                !preg_match($uri, $this->requestUri)
+            ) return $routes;
+
             preg_match_all($uri, $this->requestUri, $params, 2, 0);
             $routes[] = [$callback, $params[0]];
+
             return $routes;
         }, []));
 
@@ -44,14 +50,25 @@ class Router {
 $router = new Router('/step6-router');
 
 $router->get('/', function ($param) {
-    echo "root";
+    print_pre($param);
 });
 
 $router->get('/test', function ($param) {
-    echo "test";
+    print_pre("is get test");
+    print_pre($param);
 });
 
-$router->get('/api/([0-9]+)', function ($param) {
+$router->post('/test', function ($param) {
+    print_pre("is post test");
+    print_pre($param);
+    print_pre($_POST);
+});
+
+$router->get('/api/member/([0-9]+)', function ($param) {
+    print_pre($param);
+});
+
+$router->get('/api/member/([0-9]+)/board/([0-9]+)', function ($param) {
     print_pre($param);
 });
 
