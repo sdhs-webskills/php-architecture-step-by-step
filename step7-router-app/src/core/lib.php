@@ -17,8 +17,17 @@ function fetchData ($prefix = null) {
     return $root->$prefix ?? null;
 }
 
-function setData ($data) {
-    file_put_contents(ROOT . '/data/dats.json', json_encode($data));
+function setData ($data, $prefix = null) {
+    if (isset($prefix)) {
+        $allData = fetchData();
+        $allData->$prefix = $data;
+        $data = $allData;
+    }
+    file_put_contents(ROOT . '/data/data.json', json_encode($data));
+}
+
+function getMicroTime() {
+    return round(microtime(true) * 1000);
 }
 
 spl_autoload_register(function ($className) {

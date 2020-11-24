@@ -1,1 +1,49 @@
-{}
+{
+  "users": [
+    {
+      "id": 1606233918097.989,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    },
+    {
+      "id": 1606233988482,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    },
+    {
+      "id": 1606233989329,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    },
+    {
+      "id": 1606233989763,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    },
+    {
+      "id": 1606233990017,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    },
+    {
+      "id": 1606233990298,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    },
+    {
+      "id": 1606233990523,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    },
+    {
+      "id": 1606233990747,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    },
+    {
+      "id": 1606233991571,
+      "name": "junil",
+      "email": "junil.h@kakao.com"
+    }
+  ]
+}

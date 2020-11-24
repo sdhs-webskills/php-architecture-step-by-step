@@ -8,12 +8,24 @@ class UserController {
     private Router $router;
 
     function __construct(Router $router) {
-        $router->get('/api/user', fn($params) => $this->getUser($params));
+        $router->get('/api/users', fn($params) => $this->getUser($params));
+        $router->post('/api/user', fn($params) => $this->setUser($params));
     }
 
     private function getUser($params) {
         header("Content-Type: application/json");
-        $user = fetchData("user");
-        echo json_encode($user);
+        $users = fetchData("users");
+        echo json_encode($users);
+    }
+
+    private function setUser($params) {
+        $users = fetchData("users") ?? [];
+        $users[] = [
+            "id" => getMicroTime(),
+            "name" => $_POST['name'],
+            "email" => $_POST['email'],
+        ];
+        setData($users, "users");
+        echo json_encode([ 'success' => true ]);
     }
 }
