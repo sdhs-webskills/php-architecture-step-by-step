@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/static.*$ # 여기서 static 파일을 걸러낸다.
+RewriteRule ^.+$ index.php [L,QSA]
