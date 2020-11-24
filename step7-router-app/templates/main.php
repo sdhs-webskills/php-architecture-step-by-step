@@ -22,7 +22,7 @@
     </form>
     <script>
         function getUsers() {
-            fetch('/api/users')
+            fetch('./api/users')
                 .then(res => res.json())
                 .then(json => {
                     document.querySelector('#users').innerHTML = JSON.stringify(json, null, 4);
