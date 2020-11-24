@@ -1,27 +1,34 @@
 <?php
     class Router {
-        private static Array $routes = [];
+        private Array $routes = [];
+        private String $baseUri;
 
-        public static function staticPath() {
+        function Router($baseUri) {
+            $this->baseUri = $baseUri;
+        }
+
+        public function staticPath($path) {
 
         }
 
-        public static function use($uri) {
+        public function use($uri, $callback) {
 
         }
 
-        public static function get() {
+        public function get($uri, $callback) {
 
         }
 
-        public static function post() {
+        public function post($uri, $callback) {
 
         }
     }
 
-    Router::staticPath('/static');
+    $router = new Router('/step6-router');
 
-    Router::get('/', function ($param) {
+    $router->staticPath('/static');
+
+    $router->get('/', function ($param) {
 
     });
 
