@@ -24,6 +24,14 @@ class Router {
         $this->routes[] = ["post", $uri, $callback];
     }
 
+    public function delete($uri, $callback) {
+        $this->routes[] = ["delete", $uri, $callback];
+    }
+
+    public function put($uri, $callback) {
+        $this->routes[] = ["put", $uri, $callback];
+    }
+
     public function run() {
         $routes = array_reduce($this->routes, function ($routes, $route) {
             [$method, $uri, $callback] = $route;
