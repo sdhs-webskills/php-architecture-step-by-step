@@ -18,7 +18,5 @@ $router->get('/', function ($param) {
 
 new UserController($router);
 
-print_pre($_SERVER);
-
 $router->run();
 

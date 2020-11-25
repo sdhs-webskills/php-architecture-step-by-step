@@ -4,12 +4,11 @@ namespace src\core;
 
 class Router {
     private array $routes = [];
-    private String $baseUri;
     private String $requestUri;
 
     function __construct($baseUri) {
-        $this->baseUri = $baseUri;
-        $this->requestUri = str_replace($baseUri, "", $_SERVER['PATH_INFO'] ?? "/");
+        $path = preg_replace("/\?.+/", "", $_SERVER['REQUEST_URI'] ?? "/");
+        $this->requestUri = str_replace($baseUri, "", $path);
     }
 
     public function use($uri, $callback) {
