@@ -17,6 +17,7 @@ class UserController {
     private function getUsers($params) {
         header("Content-Type: application/json");
         $users = fetchData("users");
+        usort($users, fn($a, $b) => $b->id - $a->id);
         echo json_encode($users);
     }
 
@@ -41,6 +42,7 @@ class UserController {
             "id" => getMicroTime(),
             "name" => $_POST['name'],
             "email" => $_POST['email'],
+            "createdAt" => date("Y-m-d H:i:s")
         ];
         setData($users, "users");
         echo json_encode([ 'success' => true ]);

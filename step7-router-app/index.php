@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Seoul');
 
 use src\core\Router;
 use src\controller\UserController;

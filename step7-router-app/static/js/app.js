@@ -25,6 +25,7 @@ function getUserByEmail(email) {
 function addUser(form) {
     const formData = new FormData(form);
     fetch(`${BASE_URI}/api/user`, {method: 'post', body: formData})
+        .then(() => form.reset())
         .then(() => getUsers());
 }
 
