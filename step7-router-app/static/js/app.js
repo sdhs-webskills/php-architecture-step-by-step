@@ -1,5 +1,5 @@
 function getUsers() {
-    fetch('./api/users')
+    fetch(`${BASE_URI}/api/users`)
         .then(res => res.json())
         .then(json => {
             document.querySelector('#users').innerHTML = JSON.stringify(json, null, 4);
@@ -7,7 +7,7 @@ function getUsers() {
 }
 
 function getUserById(id) {
-    fetch(`./api/user/${id}`)
+    fetch(`${BASE_URI}/api/user/${id}`)
         .then(res => res.json())
         .then(json => {
             document.querySelector('#userById').innerHTML = JSON.stringify(json, null, 4);
@@ -15,7 +15,7 @@ function getUserById(id) {
 }
 
 function getUserByEmail(email) {
-    fetch(`./api/user?email=${email}`)
+    fetch(`${BASE_URI}/api/user?email=${email}`)
         .then(res => res.json())
         .then(json => {
             document.querySelector('#userByEmail').innerHTML = JSON.stringify(json, null, 4);
@@ -24,7 +24,7 @@ function getUserByEmail(email) {
 
 function addUser(form) {
     const formData = new FormData(form);
-    fetch('./api/user', {method: 'post', body: formData})
+    fetch(`${BASE_URI}/api/user`, {method: 'post', body: formData})
         .then(() => getUsers());
 }
 

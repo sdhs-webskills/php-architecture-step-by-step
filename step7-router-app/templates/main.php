@@ -38,6 +38,7 @@
     <h2>전체 회원 정보</h2>
     <pre id="users"></pre>
 
+    <script>const BASE_URI = '<?php echo BASE_URI?>';</script>
     <script src="<?php echo BASE_URI ?>/static/js/app.js"></script>
 </body>
 </html>
