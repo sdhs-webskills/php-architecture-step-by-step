@@ -8,33 +8,36 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>회원정보 조회</h2>
-    <a href="./api/users">/api/users</a>
-    <pre id="users"></pre>
+    <h2>아이디로 조회</h2>
+    <form action="" name="frm1">
+        <ul>
+            <li><input type="text" name="userId" placeholder="아이디"></li>
+            <li><button type="submit">조회</button></li>
+        </ul>
+    </form>
+    <pre id="userById"></pre>
+
+    <h2>이메일로 조회</h2>
+    <form action="" name="frm2">
+        <ul>
+            <li><input type="text" name="userEmail" placeholder="아이디"></li>
+            <li><button type="submit">조회</button></li>
+        </ul>
+    </form>
+    <pre id="userByEmail"></pre>
 
     <h2>회원 추가</h2>
-    <form action="" onsubmit="return addUser(this)">
+    <form action="" name="frm3">
         <ul>
             <li><input type="text" name="name" placeholder="이름"></li>
             <li><input type="text" name="email" placeholder="이메일"></li>
             <li><button type="submit">추가</button></li>
         </ul>
     </form>
-    <script>
-        function getUsers() {
-            fetch('./api/users')
-                .then(res => res.json())
-                .then(json => {
-                    document.querySelector('#users').innerHTML = JSON.stringify(json, null, 4);
-                })
-        }
-        function addUser(form) {
-            const formData = new FormData(form);
-            fetch('./api/user', { method: 'post', body: formData })
-                .then(() => getUsers());
-            return false;
-        }
-        getUsers();
-    </script>
+
+    <h2>전체 회원 정보</h2>
+    <pre id="users"></pre>
+
+    <script src="<?php echo BASE_URI ?>/static/js/app.js"></script>
 </body>
 </html>

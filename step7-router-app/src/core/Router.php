@@ -9,7 +9,7 @@ class Router {
 
     function __construct($baseUri) {
         $this->baseUri = $baseUri;
-        $this->requestUri = str_replace($baseUri, "", $_SERVER['PATH_INFO']);
+        $this->requestUri = str_replace($baseUri, "", $_SERVER['PATH_INFO'] ?? "/");
     }
 
     public function use($uri, $callback) {
